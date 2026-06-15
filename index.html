@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"><meta name="description" content="Anonymous supplementary material for hint squared, a method for inference-time temporal logic guidance with hierarchical world models."><title>hint² Supplementary Material</title><link rel="stylesheet" href="/_astro/index.DSSSO0Z2.css"></head> <body> <main class="page"> <header class="paper-header"> <h1> <span class="title-mark">hint<sup>2</sup></span>: <span class="title-key">H</span>ierarchical
+          World Models for <span class="title-key">In</span>ference-<span class="title-key">T</span>ime
+<span class="title-key">T</span>emporal Logic Guidance
+</h1> <p class="status">Under review</p> <p class="code-note">Code coming soon...</p> </header> <section class="section" aria-labelledby="abstract-title"> <h2 id="abstract-title">Abstract</h2> <div class="abstract-card"> <p>
+A central goal of robot learning is to enable robots to execute rich instructions
+            specified at runtime. Large-scale language-conditioned policies have made substantial
+            progress toward this goal, yet still struggle with temporal structure and safety
+            constraints. Linear Temporal Logic (LTL) provides a powerful language to express
+            complex, non-Markovian instructions. However, guiding learned manipulation policies
+            toward LTL satisfaction remains challenging because modern policies generate
+            short-horizon action chunks and replan in closed loop, while almost all LTL
+            specifications are evaluated over long-horizon trajectories.
+</p> <p>
+In this paper, we introduce hint<sup>2</sup>, a method for guiding short-horizon policies
+            toward satisfying complex LTL specifications at inference time using hierarchical world
+            models. Our key idea is to derive two separate guidance objectives using each world
+            model's abstraction level. A high-level model predicts future action-induced transitions
+            in task-relevant atomic propositions to guide progress through the LTL automaton, while
+            a low-level dynamics model predicts immediate state evolution for accurate local safety
+            guidance.
+</p> <p>
+Our results show that hint<sup>2</sup> overcomes the limitations of current LTL-guided
+            diffusion methods, outperforms existing inference-time steering methods in CALVIN, and
+            successfully completes instructions with complex liveness and safety constraints more
+            elegantly than language-conditioned alternatives. Finally, we demonstrate that
+            hint<sup>2</sup> can handle complex instructions on a real UR5e manipulator.
+</p> </div> </section> <section class="section experiments" aria-labelledby="experiments-title"> <h2 id="experiments-title">Experimental Results</h2> <div class="results-board"> <article class="experiment-row"> <div class="experiment-title" aria-label="Experiment 1"> <span>1</span> </div> <div class="experiment-slots"> <div class="base-panel image-slot"> <h3 class="slot-label base-title">Toy Squares</h3> <img src="/figures/toy-base-policy.png" alt="Toy Squares base diffusion policy rollouts"> <p class="instruction base-caption">
+The unguided diffusion policy moves toward one of the four colored regions.
+</p> </div> <div class="method-panel"> <div class="method-heading-row"> <p class="method-video-title">Liveness Constraints</p> <h3 class="method-mark">hint<sup>2</sup></h3> <p class="method-video-title">Safety Constraints</p> </div> <div class="method-grid"> <div class="method-card"> <p class="slot-label mobile-method-title">Liveness Constraints</p> <video class="result-video" controls muted loop playsinline preload="metadata"> <source src="/videos/toy-liveness.mp4" type="video/mp4">
+This browser cannot play the embedded video.
+</video> <p class="instruction">&quot;Touch the blue region, then the yellow, green, and red regions, then blue again.&quot;</p> </div><div class="method-card"> <p class="slot-label mobile-method-title">Safety Constraints</p> <video class="result-video" controls muted loop playsinline preload="metadata"> <source src="/videos/toy-general-ltl.mp4" type="video/mp4">
+This browser cannot play the embedded video.
+</video> <p class="instruction">&quot;Avoid the marked regions while satisfying the ordered targets.&quot;</p> </div> </div> </div> </div> </article> <article class="experiment-row"> <div class="experiment-title" aria-label="Experiment 2"> <span>2</span> </div> <div class="experiment-slots"> <div class="base-panel image-slot"> <h3 class="slot-label base-title">CALVIN</h3> <img src="/figures/calvin-base-policy.png" alt="Base diffusion policy in CALVIN"> <p class="instruction base-caption">
+The unguided diffusion policy executes an arbitrary behavior in the tabletop scene.
+</p> </div> <div class="method-panel"> <div class="method-heading-row"> <p class="method-video-title">Cyclic Repetition</p> <h3 class="method-mark">hint<sup>2</sup></h3> <p class="method-video-title">Safety Constraints</p> </div> <div class="method-grid"> <div class="method-card"> <p class="slot-label mobile-method-title">Cyclic Repetition</p> <video class="result-video" controls muted loop playsinline preload="metadata"> <source src="/videos/calvin-cyclic.mp4" type="video/mp4">
+This browser cannot play the embedded video.
+</video> <p class="instruction">&quot;Repeatedly flip the switch and open or close the drawer.&quot;</p> </div><div class="method-card"> <p class="slot-label mobile-method-title">Safety Constraints</p> <video class="result-video" controls muted loop playsinline preload="metadata"> <source src="/videos/calvin-safety.mp4" type="video/mp4">
+This browser cannot play the embedded video.
+</video> <p class="instruction">&quot;Flip the switch, but keep the gripper at 20 degrees while doing so.&quot;</p> </div> </div> </div> </div> </article> <article class="experiment-row"> <div class="experiment-title" aria-label="Experiment 3"> <span>3</span> </div> <div class="experiment-slots"> <div class="base-panel image-slot"> <h3 class="slot-label base-title">Real World</h3> <img src="/figures/real-world-base-policy.png" alt="Real-world base policy"> <p class="instruction base-caption">
+The unguided diffusion policy may put the Cheez-Its down or pour them into either bowl.
+</p> </div> <div class="method-panel"> <div class="method-heading-row"> <p class="method-video-title">Behavior Selection</p> <h3 class="method-mark">hint<sup>2</sup></h3> <p class="method-video-title">Cyclic Repetition</p> </div> <div class="method-grid"> <div class="method-card"> <p class="slot-label mobile-method-title">Behavior Selection</p> <video class="result-video" controls muted loop playsinline preload="metadata"> <source src="/videos/real-behavior-selection.mp4" type="video/mp4">
+This browser cannot play the embedded video.
+</video> <p class="instruction">&quot;Pour the Cheez-Its into the right bowl, then the left bowl, then the right bowl again.&quot;</p> </div><div class="method-card"> <p class="slot-label mobile-method-title">Cyclic Repetition</p> <video class="result-video" controls muted loop playsinline preload="metadata"> <source src="/videos/real-cyclic.mp4" type="video/mp4">
+This browser cannot play the embedded video.
+</video> <p class="instruction">&quot;Repeatedly take the Cheez-Its, pour them into the right and left bowls, and put them down.&quot;</p> </div> </div> </div> </div> </article> </div> </section> </main> </body></html>
