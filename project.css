@@ -1,9 +1,10 @@
 .paper-header h1 { color: var(--hint-blue); }
 .instruction-block { display: grid; gap: 6px; align-self: start; min-width: 0; }
 .ltl-instruction { margin: 0; color: #204da8; font-family: var(--mono); font-size: .72rem; line-height: 1.4; text-align: center; overflow-wrap: anywhere; }
-.ltl-instruction code, .ltl-key code, .ltl-expansion code { font-family: inherit; }
+.ltl-instruction code, .ltl-key code { font-family: inherit; }
 .ltl-label { font-weight: 700; }
-.ltl-details { margin: 0; }
-.ltl-details summary { cursor: pointer; }
-.ltl-expansion { margin: 6px 0 0; padding: 7px; border-top: 1px solid var(--base-line); color: #3f4650; font-family: var(--mono); font-size: .67rem; line-height: 1.4; overflow-wrap: anywhere; }
 .ltl-key { margin: 20px auto 0; max-width: 900px; color: var(--muted); font-family: var(--mono); font-size: .72rem; line-height: 1.6; text-align: center; }
+.ltl-instruction { display: flex; align-items: baseline; justify-content: center; gap: 4px; }
+.ltl-instruction code { min-width: 0; }
+.ltl-line { display: block; }
+.ltl-instruction sup, .ltl-instruction sub { font-size: .78em; line-height: 0; }
