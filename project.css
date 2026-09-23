@@ -27,6 +27,10 @@
 .ltl-key { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 12px; width: fit-content; max-width: 100%; margin: 20px auto 0; padding: 14px 18px; border: 1.5px solid var(--base-neutral-line); border-radius: 13px; background: #f0f3f8; box-shadow: 0 8px 20px #434c5b14; color: var(--muted); font-family: var(--mono); font-size: .72rem; line-height: 1.6; }
 .ltl-key dt { font-weight: 700; text-align: right; white-space: nowrap; }
 .ltl-key dd { min-width: 0; margin: 0; text-align: left; overflow-wrap: anywhere; }
+.ltl-key dt, .ltl-key dd { align-self: baseline; }
+.ltl-key sup, .ltl-key sub { position: relative; vertical-align: baseline; font-size: .78em; line-height: 0; }
+.ltl-key sup { top: -.5em; }
+.ltl-key sub { bottom: -.25em; }
 .ltl-key a { color: var(--hint-blue); text-decoration: underline; text-underline-offset: 2px; }
 .ltl-term { display: inline-block; white-space: nowrap; }
 .ltl-row { display: block; }
