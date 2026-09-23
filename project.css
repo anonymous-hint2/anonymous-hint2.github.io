@@ -1,4 +1,9 @@
 .paper-header h1 { color: var(--hint-blue); }
+.results-board { --card-pad-y: 7px; --media-title-row: 1.4rem; --label-gap: 4px; }
+.experiment-slots .card-title { margin: 0; min-height: 0; padding: 0; align-self: center; align-items: center; justify-content: center; color: var(--ink); font-family: var(--mono); font-size: 1rem; font-weight: 700; line-height: 1.25; text-align: center; transform: none; }
+@media (min-width: 681px) and (max-width: 800px) {
+  .experiment-slots .card-title { font-size: .875rem; }
+}
 .instruction-block { display: grid; gap: 6px; align-self: start; min-width: 0; }
 .instruction-block .instruction { color: #3f4650; }
 .ltl-instruction { margin: 0; color: #204da8; font-family: var(--mono); font-size: .72rem; line-height: 1.4; text-align: center; text-align-last: center; text-wrap: balance; word-spacing: normal; letter-spacing: normal; overflow-wrap: normal; }
