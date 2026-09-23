@@ -4,7 +4,9 @@
 .ltl-instruction { margin: 0; color: #204da8; font-family: var(--mono); font-size: .72rem; line-height: 1.4; text-align: center; overflow-wrap: normal; }
 .ltl-instruction code, .ltl-key code { font-family: inherit; }
 .ltl-label { flex-shrink: 0; font-weight: 700; }
-.ltl-key { margin: 20px auto 0; max-width: 900px; color: var(--muted); font-family: var(--mono); font-size: .72rem; line-height: 1.6; text-align: center; }
+.ltl-key { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 12px; width: fit-content; max-width: 100%; margin: 20px auto 0; padding: 14px 18px; border: 1.5px solid var(--base-neutral-line); border-radius: 13px; background: #f0f3f8; box-shadow: 0 8px 20px #434c5b14; color: var(--muted); font-family: var(--mono); font-size: .72rem; line-height: 1.6; }
+.ltl-key dt { font-weight: 700; text-align: right; white-space: nowrap; }
+.ltl-key dd { min-width: 0; margin: 0; text-align: left; overflow-wrap: anywhere; }
 .ltl-instruction { display: flex; align-items: baseline; justify-content: center; gap: 4px; }
 .ltl-instruction code { min-width: 0; }
 .ltl-term { display: inline-block; white-space: nowrap; }
