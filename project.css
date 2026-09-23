@@ -1,11 +1,26 @@
 .paper-header h1 { color: var(--hint-blue); }
-.results-board { --card-pad-y: 9px; --media-title-row: 1.4rem; --label-gap: 9px; }
+.results-board { --card-pad-y: 9px; --media-title-row: 1.4rem; --label-gap: 9px; --caption-gap: 4px; }
+.base-panel, .method-panel { padding-bottom: 6px; }
+.base-panel { row-gap: 0; }
+.base-panel > img { margin-top: var(--label-gap); }
+.base-caption { min-height: 0; margin-top: var(--caption-gap); }
 .experiment-slots .card-title { margin: 0; min-height: 0; padding: 0; align-self: center; align-items: center; justify-content: center; color: var(--ink); font-family: var(--mono); font-size: 1rem; font-weight: 700; line-height: 1.25; text-align: center; transform: none; }
 @media (min-width: 681px) and (max-width: 800px) {
   .experiment-slots .card-title { font-size: .875rem; }
 }
-.instruction-block { display: grid; gap: 6px; align-self: start; min-width: 0; }
-.instruction-block .instruction { color: #3f4650; }
+.instruction-block { display: grid; gap: var(--caption-gap); align-self: start; min-width: 0; }
+.instruction-block .instruction { min-height: 0; color: #3f4650; }
+@media (min-width: 681px) {
+  .method-grid { grid-template-rows: auto auto auto; row-gap: var(--caption-gap); align-content: start; }
+  .method-card { grid-row: 1 / span 3; grid-template-rows: subgrid; row-gap: var(--caption-gap); }
+  .instruction-block { display: contents; }
+  .ltl-instruction, .instruction-block .instruction { align-self: center; }
+}
+@media (max-width: 680px) {
+  .method-card { row-gap: 0; }
+  .method-card .result-video { margin-top: var(--label-gap); }
+  .instruction-block { margin-top: var(--caption-gap); }
+}
 .ltl-instruction { margin: 0; color: #204da8; font-family: var(--mono); font-size: .72rem; line-height: 1.4; text-align: center; text-align-last: center; text-wrap: balance; word-spacing: normal; letter-spacing: normal; overflow-wrap: normal; }
 .ltl-instruction code, .ltl-key code { font-family: inherit; }
 .ltl-label { font-weight: 700; }
