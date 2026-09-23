@@ -8,3 +8,19 @@
 .ltl-instruction code { min-width: 0; }
 .ltl-line { display: block; }
 .ltl-instruction sup, .ltl-instruction sub { font-size: .78em; line-height: 0; }
+
+/* Each guided execution is a complete, independently linked video panel. */
+.experiment-slots { gap: 14px; align-items: stretch; }
+.method-card { display: flex; flex-direction: column; gap: 9px; min-width: 0; padding: 12px 9px; border: 1.5px solid var(--hint-blue); border-radius: 10px; background: #f8faff; box-shadow: none; }
+.panel-title { display: flex; align-items: center; justify-content: center; min-height: var(--media-title-row); margin: 0; color: var(--hint-blue); font-family: var(--mono); font-size: .88rem; line-height: 1.25; text-align: center; }
+.method-card .result-video { width: 100%; flex: none; border: 0; border-radius: 6px; box-shadow: none; }
+.method-card .instruction-block { align-self: stretch; gap: 7px; }
+.method-card .instruction { min-height: 0; }
+.video-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px; margin-top: auto; padding-top: 3px; font-family: var(--mono); font-size: .7rem; }
+.video-links a { color: #204da8; text-underline-offset: 3px; }
+.video-links a:hover { color: #123676; }
+.video-links a:focus-visible { outline: 2px solid var(--hint-blue); outline-offset: 3px; }
+@media (max-width: 680px) {
+ .experiment-slots { grid-template-columns: 1fr; }
+ .method-card { box-sizing: border-box; width: min(100%,320px); }
+}
