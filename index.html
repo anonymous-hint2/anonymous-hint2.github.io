@@ -1,112 +1,21 @@
 <!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"><meta name="description" content="Anonymous supplementary material for Composing Learned Robot Behaviors with Temporal Logic at Runtime."><title>Composing Learned Robot Behaviors with Temporal Logic at Runtime — Supplementary Material</title><link rel="stylesheet" href="/_astro/index.DSSSO0Z2.css"><link rel="stylesheet" href="/project.css"></head> <body> <main class="page"> <header class="paper-header"> <h1>Composing Learned Robot Behaviors with Temporal Logic at Runtime</h1> <p class="status">Under review</p> <p class="code-note">Code coming soon...</p> </header> <section class="section" aria-labelledby="abstract-title"> <h2 id="abstract-title">Abstract</h2> <div class="abstract-card">
 <p>Executing Linear Temporal Logic (LTL) instructions with learned robot policies faces two practical challenges: demonstrations may cover individual behaviors without containing the temporal compositions requested at deployment, and semantic success predicates often provide little useful motor guidance through quantitative robustness. We address these challenges by separating behavior learning from temporal composition. From the same offline demonstrations, we train an unconditioned multimodal diffusion policy and a semantic predictor that estimates which semantic outcomes are likely to follow a proposed action sequence. These predictions provide a learned guidance signal without requiring hand-designed robustness measures for semantic task objectives. At deployment, an LTL automaton tracks instruction progress and scores the policy&#x27;s proposed actions according to their predicted semantic outcomes. Neither learned component receives the specification during training, allowing demonstrated behaviors to be reused in longer, previously unseen temporal compositions without retraining. For additional runtime safety constraints with informative continuous margins, an optional robustness-based controller locally refines the selected actions. Experiments in a navigation environment, CALVIN manipulation, and on a real robot demonstrate reliable execution of complex temporal instructions and additional safety constraints, with substantial improvements over temporal-logic baselines.</p>
-</div> </section> <section class="section experiments" aria-labelledby="experiments-title"> <h2 id="experiments-title">Experimental Results</h2> <div class="results-board">
-<article class="experiment-row">
-  <div class="experiment-title" aria-label="Experiment 1"><span>1</span></div>
-  <div class="experiment-slots">
-    <div class="base-panel image-slot"> <h3 class="slot-label base-title">Toy Squares</h3> <img src="/figures/toy-base-policy.png" alt="Toy Squares base diffusion policy rollouts"> <p class="instruction base-caption">
+</div> </section> <section class="section experiments" aria-labelledby="experiments-title"> <h2 id="experiments-title">Experimental Results</h2> <div class="results-board"> <article class="experiment-row"> <div class="experiment-title" aria-label="Experiment 1"> <span>1</span> </div> <div class="experiment-slots"> <div class="base-panel image-slot"> <h3 class="slot-label base-title">Toy Squares</h3> <img src="/figures/toy-base-policy.png" alt="Toy Squares base diffusion policy rollouts"> <p class="instruction base-caption">
 The demonstration data includes movements to any of the four regions.
-</p> </div>
-    <article class="method-card" id="toy-liveness" aria-labelledby="toy-liveness-title">
-  <h3 class="panel-title" id="toy-liveness-title">Liveness Constraints</h3>
-  <video class="result-video" poster="/figures/video-posters/toy-liveness.jpg" controls muted loop playsinline preload="metadata"> <source src="/videos/toy-liveness.mp4" type="video/mp4">
+</p> </div> <div class="method-panel"> <div class="method-heading-row"> <p class="method-video-title">Liveness Constraints</p> <h3 class="method-mark">Ours</h3> <p class="method-video-title">Safety Constraints</p> </div> <div class="method-grid"> <div class="method-card"> <p class="slot-label mobile-method-title">Liveness Constraints</p> <video class="result-video" controls muted loop playsinline preload="metadata"> <source src="/videos/toy-liveness.mp4" type="video/mp4">
 This browser cannot play the embedded video.
-</video>
-  <div class="instruction-block">
-    <p class="ltl-instruction"><span class="ltl-label">LTL:</span> <code><span class="ltl-line">F(b ∧ X F(y ∧ X F(g ∧</span><span class="ltl-line">X F(r ∧ X F b))))</span></code></p>
-    <p class="instruction">&quot;Touch the blue region, then the yellow, green, and red regions, then blue again.&quot;</p>
-  </div>
-  <nav class="video-links" aria-label="Liveness Constraints video links">
-    <a href="/videos/toy-liveness.mp4">Open video</a>
-    <a href="/videos/toy-liveness.mp4" download>Download MP4</a>
-  </nav>
-</article>
-<article class="method-card" id="toy-general-ltl" aria-labelledby="toy-general-ltl-title">
-  <h3 class="panel-title" id="toy-general-ltl-title">Safety Constraints</h3>
-  <video class="result-video" poster="/figures/video-posters/toy-general-ltl.jpg" controls muted loop playsinline preload="metadata"> <source src="/videos/toy-general-ltl.mp4" type="video/mp4">
+</video> <div class="instruction-block"><p class="instruction">&quot;Touch the blue region, then the yellow, green, and red regions, then blue again.&quot;</p><p class="ltl-instruction"><span class="ltl-label">LTL:</span> <code><span class="ltl-line">F(b ∧ X F(y ∧ X F(g ∧</span><span class="ltl-line">X F(r ∧ X F b))))</span></code></p></div> </div><div class="method-card"> <p class="slot-label mobile-method-title">Safety Constraints</p> <video class="result-video" controls muted loop playsinline preload="metadata"> <source src="/videos/toy-general-ltl.mp4" type="video/mp4">
 This browser cannot play the embedded video.
-</video>
-  <div class="instruction-block">
-    <p class="ltl-instruction"><span class="ltl-label">LTL:</span> <code><span class="ltl-line">G avoid_region</span></code></p>
-    <p class="instruction">&quot;Avoid the marked regions while satisfying the ordered targets.&quot;</p>
-  </div>
-  <nav class="video-links" aria-label="Safety Constraints video links">
-    <a href="/videos/toy-general-ltl.mp4">Open video</a>
-    <a href="/videos/toy-general-ltl.mp4" download>Download MP4</a>
-  </nav>
-</article>
-  </div>
-</article>
-<article class="experiment-row">
-  <div class="experiment-title" aria-label="Experiment 2"><span>2</span></div>
-  <div class="experiment-slots">
-    <div class="base-panel image-slot"> <h3 class="slot-label base-title">CALVIN</h3> <img src="/figures/calvin-base-policy.png" alt="Base diffusion policy in CALVIN"> <p class="instruction base-caption">
+</video> <div class="instruction-block"><p class="instruction">&quot;Avoid the marked regions while satisfying the ordered targets.&quot;</p><p class="ltl-instruction"><span class="ltl-label">LTL:</span> <code><span class="ltl-line">G avoid_region</span></code></p></div> </div> </div> </div> </div> </article> <article class="experiment-row"> <div class="experiment-title" aria-label="Experiment 2"> <span>2</span> </div> <div class="experiment-slots"> <div class="base-panel image-slot"> <h3 class="slot-label base-title">CALVIN</h3> <img src="/figures/calvin-base-policy.png" alt="Base diffusion policy in CALVIN"> <p class="instruction base-caption">
 The demonstrations cover arbitrary interactions with the tabletop scene.
-</p> </div>
-    <article class="method-card" id="calvin-cyclic" aria-labelledby="calvin-cyclic-title">
-  <h3 class="panel-title" id="calvin-cyclic-title">Cyclic Repetition</h3>
-  <video class="result-video" poster="/figures/video-posters/calvin-cyclic.jpg" controls muted loop playsinline preload="metadata"> <source src="/videos/calvin-cyclic.mp4" type="video/mp4">
+</p> </div> <div class="method-panel"> <div class="method-heading-row"> <p class="method-video-title">Cyclic Repetition</p> <h3 class="method-mark">Ours</h3> <p class="method-video-title">Safety Constraints</p> </div> <div class="method-grid"> <div class="method-card"> <p class="slot-label mobile-method-title">Cyclic Repetition</p> <video class="result-video" controls muted loop playsinline preload="metadata"> <source src="/videos/calvin-cyclic.mp4" type="video/mp4">
 This browser cannot play the embedded video.
-</video>
-  <div class="instruction-block">
-    <p class="ltl-instruction"><span class="ltl-label">LTL:</span> <code><span class="ltl-line">G F(drawer<sup>+</sup> ∧ X F(switch<sup>+</sup> ∧</span><span class="ltl-line">X F(drawer<sup>−</sup> ∧ X F switch<sup>−</sup>)))</span></code></p>
-    <p class="instruction">&quot;Repeatedly flip the switch and open or close the drawer.&quot;</p>
-  </div>
-  <nav class="video-links" aria-label="Cyclic Repetition video links">
-    <a href="/videos/calvin-cyclic.mp4">Open video</a>
-    <a href="/videos/calvin-cyclic.mp4" download>Download MP4</a>
-  </nav>
-</article>
-<article class="method-card" id="calvin-safety" aria-labelledby="calvin-safety-title">
-  <h3 class="panel-title" id="calvin-safety-title">Safety Constraints</h3>
-  <video class="result-video" poster="/figures/video-posters/calvin-safety.jpg" controls muted loop playsinline preload="metadata"> <source src="/videos/calvin-safety.mp4" type="video/mp4">
+</video> <div class="instruction-block"><p class="instruction">&quot;Repeatedly flip the switch and open or close the drawer.&quot;</p><p class="ltl-instruction"><span class="ltl-label">LTL:</span> <code><span class="ltl-line">G F(drawer<sup>+</sup> ∧ X F(switch<sup>+</sup> ∧</span><span class="ltl-line">X F(drawer<sup>−</sup> ∧ X F switch<sup>−</sup>)))</span></code></p></div> </div><div class="method-card"> <p class="slot-label mobile-method-title">Safety Constraints</p> <video class="result-video" controls muted loop playsinline preload="metadata"> <source src="/videos/calvin-safety.mp4" type="video/mp4">
 This browser cannot play the embedded video.
-</video>
-  <div class="instruction-block">
-    <p class="ltl-instruction"><span class="ltl-label">LTL:</span> <code><span class="ltl-line">F switch<sup>−</sup> ∧ G tilt<sub>20°</sub></span></code></p>
-    <p class="instruction">&quot;Turn off the switch while keeping the gripper tilted near 20 degrees.&quot;</p>
-  </div>
-  <nav class="video-links" aria-label="Safety Constraints video links">
-    <a href="/videos/calvin-safety.mp4">Open video</a>
-    <a href="/videos/calvin-safety.mp4" download>Download MP4</a>
-  </nav>
-</article>
-  </div>
-</article>
-<article class="experiment-row">
-  <div class="experiment-title" aria-label="Experiment 3"><span>3</span></div>
-  <div class="experiment-slots">
-    <div class="base-panel image-slot"> <h3 class="slot-label base-title">Real World</h3> <img src="/figures/real-world-base-policy.png" alt="Real-world base policy"> <p class="instruction base-caption">
+</video> <div class="instruction-block"><p class="instruction">&quot;Turn off the switch while keeping the gripper tilted near 20 degrees.&quot;</p><p class="ltl-instruction"><span class="ltl-label">LTL:</span> <code><span class="ltl-line">F switch<sup>−</sup> ∧ G tilt<sub>20°</sub></span></code></p></div> </div> </div> </div> </div> </article> <article class="experiment-row"> <div class="experiment-title" aria-label="Experiment 3"> <span>3</span> </div> <div class="experiment-slots"> <div class="base-panel image-slot"> <h3 class="slot-label base-title">Real World</h3> <img src="/figures/real-world-base-policy.png" alt="Real-world base policy"> <p class="instruction base-caption">
 The demonstrations cover how to pour into either bowl.
-</p> </div>
-    <article class="method-card" id="real-behavior-selection" aria-labelledby="real-behavior-selection-title">
-  <h3 class="panel-title" id="real-behavior-selection-title">Behavior Selection</h3>
-  <video class="result-video" poster="/figures/video-posters/real-behavior-selection.jpg" controls muted loop playsinline preload="metadata"> <source src="/videos/real-behavior-selection.mp4" type="video/mp4">
+</p> </div> <div class="method-panel"> <div class="method-heading-row"> <p class="method-video-title">Behavior Selection</p> <h3 class="method-mark">Ours</h3> <p class="method-video-title">Cyclic Repetition</p> </div> <div class="method-grid"> <div class="method-card"> <p class="slot-label mobile-method-title">Behavior Selection</p> <video class="result-video" controls muted loop playsinline preload="metadata"> <source src="/videos/real-behavior-selection.mp4" type="video/mp4">
 This browser cannot play the embedded video.
-</video>
-  <div class="instruction-block">
-    <p class="ltl-instruction"><span class="ltl-label">LTL:</span> <code><span class="ltl-line">F(pour<sub>R</sub> ∧ X F(pour<sub>L</sub> ∧</span><span class="ltl-line">X F pour<sub>R</sub>))</span></code></p>
-    <p class="instruction">&quot;Pour the Cheez-Its into the right bowl, then the left bowl, then the right bowl again.&quot;</p>
-  </div>
-  <nav class="video-links" aria-label="Behavior Selection video links">
-    <a href="/videos/real-behavior-selection.mp4">Open video</a>
-    <a href="/videos/real-behavior-selection.mp4" download>Download MP4</a>
-  </nav>
-</article>
-<article class="method-card" id="real-cyclic" aria-labelledby="real-cyclic-title">
-  <h3 class="panel-title" id="real-cyclic-title">Cyclic Repetition</h3>
-  <video class="result-video" poster="/figures/video-posters/real-cyclic.jpg" controls muted loop playsinline preload="metadata"> <source src="/videos/real-cyclic.mp4" type="video/mp4">
+</video> <div class="instruction-block"><p class="instruction">&quot;Pour the Cheez-Its into the right bowl, then the left bowl, then the right bowl again.&quot;</p><p class="ltl-instruction"><span class="ltl-label">LTL:</span> <code><span class="ltl-line">F(pour<sub>R</sub> ∧ X F(pour<sub>L</sub> ∧</span><span class="ltl-line">X F pour<sub>R</sub>))</span></code></p></div> </div><div class="method-card"> <p class="slot-label mobile-method-title">Cyclic Repetition</p> <video class="result-video" controls muted loop playsinline preload="metadata"> <source src="/videos/real-cyclic.mp4" type="video/mp4">
 This browser cannot play the embedded video.
-</video>
-  <div class="instruction-block">
-    <p class="ltl-instruction"><span class="ltl-label">LTL:</span> <code><span class="ltl-line">G F(grab ∧ X F(pour<sub>R</sub> ∧</span><span class="ltl-line">X F(pour<sub>L</sub> ∧ X F put_down)))</span></code></p>
-    <p class="instruction">&quot;Repeatedly pick up the box, pour into the right bowl, then the left bowl, and put it down.&quot;</p>
-  </div>
-  <nav class="video-links" aria-label="Cyclic Repetition video links">
-    <a href="/videos/real-cyclic.mp4">Open video</a>
-    <a href="/videos/real-cyclic.mp4" download>Download MP4</a>
-  </nav>
-</article>
-  </div>
-</article>
-</div> </section> <p class="ltl-key"><strong>LTL notation:</strong> <code>F</code> = eventually; <code>G</code> = always; <code>X</code> = next; <code>∧</code> = and.<br><code>b, y, g, r</code> = blue, yellow, green, red. <code>switch<sup>+</sup>/switch<sup>−</sup></code> = on/off; <code>drawer<sup>+</sup>/drawer<sup>−</sup></code> = open/closed; <code>pour<sub>R</sub>/pour<sub>L</sub></code> = pour right/left. <code>avoid_region</code> means staying outside the marked regions.</p></main> </body></html>
+</video> <div class="instruction-block"><p class="instruction">&quot;Repeatedly pick up the box, pour into the right bowl, then the left bowl, and put it down.&quot;</p><p class="ltl-instruction"><span class="ltl-label">LTL:</span> <code><span class="ltl-line">G F(grab ∧ X F(pour<sub>R</sub> ∧</span><span class="ltl-line">X F(pour<sub>L</sub> ∧ X F put_down)))</span></code></p></div> </div> </div> </div> </div> </article> </div> </section> <p class="ltl-key"><strong>LTL notation:</strong> <code>F</code> = eventually; <code>G</code> = always; <code>X</code> = next; <code>∧</code> = and.<br><code>b, y, g, r</code> = blue, yellow, green, red. <code>switch<sup>+</sup>/switch<sup>−</sup></code> = on/off; <code>drawer<sup>+</sup>/drawer<sup>−</sup></code> = open/closed; <code>pour<sub>R</sub>/pour<sub>L</sub></code> = pour right/left. <code>avoid_region</code> means staying outside the marked regions.</p></main> </body></html>
