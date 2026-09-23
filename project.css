@@ -14,4 +14,5 @@
 .ltl-key dd { min-width: 0; margin: 0; text-align: left; overflow-wrap: anywhere; }
 .ltl-key a { color: var(--hint-blue); text-decoration: underline; text-underline-offset: 2px; }
 .ltl-term { display: inline-block; white-space: nowrap; }
+.ltl-row { display: block; }
 .ltl-instruction sup, .ltl-instruction sub { font-size: .78em; line-height: 0; }
